@@ -1,7 +1,7 @@
 import hashlib
 from pathlib import Path
 
-from config import IGNORED_DIRS, IGNORED_FILES, MAX_HASH_BYTES, TEMP_SUFFIXES
+from config import IGNORED_DIRS, IGNORED_FILES, IGNORED_SUFFIXES, MAX_HASH_BYTES, TEMP_SUFFIXES
 
 
 def should_ignore(path: Path, root: Path) -> bool:
@@ -12,6 +12,8 @@ def should_ignore(path: Path, root: Path) -> bool:
     if any(part in IGNORED_DIRS for part in relative.parts[:-1]):
         return True
     if path.name in IGNORED_FILES or path.suffix.lower() in TEMP_SUFFIXES:
+        return True
+    if path.name.lower().endswith(IGNORED_SUFFIXES):
         return True
     return False
 

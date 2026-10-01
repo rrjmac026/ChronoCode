@@ -18,9 +18,34 @@ IGNORED_DIRS = {
     "env",
     "dist",
     "build",
+    # .NET / Visual Studio build output
+    "bin",
+    "obj",
+    ".vs",
+    "TestResults",
+    # other common generated/cache folders
+    ".next",
+    ".nuxt",
+    ".gradle",
+    ".dart_tool",
+    ".pytest_cache",
+    ".mypy_cache",
+    "coverage",
 }
 IGNORED_FILES = {".DS_Store", "Thumbs.db"}
 TEMP_SUFFIXES = {".tmp", ".swp", ".part", ".lock"}
+
+# Auto-generated / binary files that are never hand-written code.
+# Matched against the END of the file name (case-insensitive), so multi-part
+# endings like ".sourcelink.json" work too.
+IGNORED_SUFFIXES = (
+    # .NET build artifacts
+    ".pdb", ".dll", ".exe", ".cache", ".nupkg", ".suo", ".user",
+    ".sourcelink.json", ".assemblyinfo.cs", ".assemblyinfoinputs.cache",
+    ".g.cs", ".g.i.cs", ".designer.cs.bak",
+    # misc compiled / generated
+    ".obj", ".o", ".class", ".pyc", ".pyo", ".so", ".log",
+)
 
 DELETE_GRACE_SECONDS = 1.0
 STABLE_MAX_POLLS = 20

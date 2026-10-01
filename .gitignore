@@ -1,0 +1,9 @@
+# build output
+build/
+dist/
+
+# python junk
+__pycache__/
+*.pyc
+.venv/
+venv/
